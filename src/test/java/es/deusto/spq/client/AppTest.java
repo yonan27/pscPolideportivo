@@ -1,4 +1,4 @@
-package com.mycompany.app;
+package es.deusto.spq.client;
 
 import static org.junit.Assert.assertTrue;
 
