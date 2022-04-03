@@ -139,12 +139,12 @@ public class VentanaRegistro extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				boolean correcto = false;
-				boolean error = false;
 				String dni = textoDNI.getText().toString();
 				String nombre = textoNombre.getText().toString();
 				String apellido = textoApellido.getText().toString();
 				String edad = textoEdad.getText().toString();
+				boolean RegistroCorrecto = false;
+				boolean error = false;
 
 				if (textoDNI.getText().equals("") || textoNombre.getText().equals("") || textoApellido.getText().equals("")
 						|| textoEmail.getText().equals("") || textoContrasenya.toString().equals("")
@@ -195,9 +195,11 @@ public class VentanaRegistro extends JFrame {
 				} else if (!error) {
 
 					//Codigo para registrar el usuario
+					
+					RegistroCorrecto= true;
 				}
 
-				if (correcto) {
+				if (RegistroCorrecto) {
 					JOptionPane.showMessageDialog(null, "Cliente registrado correctamente.", "Nuevo cliente",JOptionPane.INFORMATION_MESSAGE);
 					VentanaLogin inicio = new VentanaLogin(controller);
 					inicio.setVisible(true);
