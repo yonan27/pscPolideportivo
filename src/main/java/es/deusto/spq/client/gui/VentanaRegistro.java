@@ -45,7 +45,7 @@ public class VentanaRegistro extends JFrame {
 		private static final long serialVersionUID = 1L;
 	}
 
-	public VentanaRegistro(final Controller controller) {
+	public VentanaRegistro(final es.deusto.spq.client.Controller controller) {
 
 		contentpane = new JPanel();
 		contentpane.setBorder(new EmptyBorder(5, 5, 5, 5));

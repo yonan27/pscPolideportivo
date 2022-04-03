@@ -1,9 +1,25 @@
 package es.deusto.spq.client;
 
+import javax.jdo.annotations.Inheritance;
+import javax.jdo.annotations.InheritanceStrategy;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.PrimaryKey;
+
+@PersistenceCapable
+@Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
+
 public class Material {
+	
+	@PrimaryKey
 	private String nombre;
 	private String id;
 	private boolean libre;
+	
+	/** Constructor de la clase Instalación
+	 * @param nombre del material
+	 * @param id del material	
+	 * @param libre para saber si el material esta disponible
+	 */
 	
 	public Material(String nombre, String id, boolean libre) {
 		super();

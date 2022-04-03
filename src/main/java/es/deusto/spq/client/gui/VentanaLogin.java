@@ -32,7 +32,7 @@ public class VentanaLogin extends JFrame {
 	private JButton botonIniciarSesion = new JButton();
 	private JButton botonRegistrarse = new JButton();
 
-	public VentanaLogin(final Controller controller) {
+	public VentanaLogin(final es.deusto.spq.client.Controller controller) {
 
 		contentpane = new JPanel();
 		contentpane.setBorder(new EmptyBorder(5, 5, 5, 5));
