@@ -70,12 +70,13 @@ private JTextField txtReservarMaterial;
 		JList list_1 = new JList();
 		list_1.setBounds(68, 95, 1, 1);
 		panel_1.add(list_1);
-		boton_nombre.addActionListener(new ActionListener() {
+		
+		
 			
 			
-		});
+		};
 		
 		
 		
 	}
-}
+
