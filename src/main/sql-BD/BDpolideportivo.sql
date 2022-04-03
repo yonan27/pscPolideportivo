@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-04-2022 a las 18:45:45
+-- Tiempo de generación: 03-04-2022 a las 19:44:29
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -24,31 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `instalación`
+-- Estructura de tabla para la tabla `material`
 --
 
-CREATE TABLE `instalación` (
+CREATE TABLE `material` (
   `ID` varchar(11) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
-  `Precio` int(3) NOT NULL,
-  `Libre` tinyint(1) NOT NULL
+  `Precio` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `instalación`
+-- Volcado de datos para la tabla `material`
 --
 
-INSERT INTO `instalación` (`ID`, `Nombre`, `Precio`, `Libre`) VALUES
-('1A', 'Campo de futbol', 20, 0),
-
-('1B', 'Campo de baloncesto', 25, 0),
-
-
-('1D', 'Pista de padel', 15, 0),
-('1C', 'Pista de tenis ', 15, 0),
-
-
-
+INSERT INTO `material` (`ID`, `Nombre`, `Precio`) VALUES
+('2A', 'Raqueta', 5),
+('2B', 'Pelotas de tenis', 3),
+('2A', 'Raqueta', 5),
+('2B', 'Pelotas de tenis', 3),
+('2C', 'Balon de futbol', 7),
+('2D', 'Guantes de portero', 4),
+('2E', 'Balón de basket', 5);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
