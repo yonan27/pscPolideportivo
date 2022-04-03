@@ -40,15 +40,15 @@ CREATE TABLE `instalación` (
 
 INSERT INTO `instalación` (`ID`, `Nombre`, `Precio`, `Libre`) VALUES
 ('1A', 'Campo de futbol', 20, 0),
-('1A', 'Campo de futbol', 20, 0),
+
 ('1B', 'Campo de baloncesto', 25, 0),
-('1B', 'Campo de baloncesto', 25, 0),
-('1C', 'Pista de tenis ', 15, 0),
+
+
 ('1D', 'Pista de padel', 15, 0),
 ('1C', 'Pista de tenis ', 15, 0),
-('1D', 'Pista de padel', 15, 0),
-('1C', 'Pista de tenis ', 15, 0),
-('1D', 'Pista de padel', 15, 0);
+
+
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
