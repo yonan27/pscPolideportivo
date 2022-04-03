@@ -31,7 +31,6 @@ public class VentanaReservaInstalaciones extends JFrame {
 	private JPanel contentpane;
 	
 	private JList listaInstalaciones = new JList();
-	private DefaultListModel contenidoHabitaciones = new DefaultListModel();
 	private JComboBox comboBoxAnyo = new JComboBox();
 	private JComboBox comboBoxMes = new JComboBox();
 	private JComboBox comboBoxDia = new JComboBox();
@@ -52,7 +51,7 @@ public class VentanaReservaInstalaciones extends JFrame {
 		contentpane.add(listaInstalaciones);
 
 		JLabel lTitulo = new JLabel("Realizar una reserva");
-		lTitulo.setFont(new Font("Forte", Font.BOLD, 40));
+		lTitulo.setFont(new Font("Franklin Gothic Medium", Font.BOLD, 40));
 		lTitulo.setBounds(341, 35, 385, 42);
 		contentpane.add(lTitulo);
 		
