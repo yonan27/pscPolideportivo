@@ -13,7 +13,7 @@ public class Material {
 	@PrimaryKey
 	private String nombre;
 	private String id;
-	private boolean libre;
+	private int precio;
 	
 	/** Constructor de la clase Instalación
 	 * @param nombre del material
@@ -21,25 +21,19 @@ public class Material {
 	 * @param libre para saber si el material esta disponible
 	 */
 	
-	public Material(String nombre, String id, boolean libre) {
-		super();
-		this.nombre = nombre;
-		this.id = id;
-		this.libre = libre;
-	}
-	
+
 	public Material() {
 		super();
 		this.nombre = "";
 		this.id = "";
-		this.libre = true;
+		this.precio = 0;
 	}
 	
 	public Material(Material m) {
 		super();
 		this.nombre = m.nombre;
 		this.id = m.id;
-		this.libre = m.libre;
+		this.precio = m.precio;
 	}
 
 	public String getNombre() {
@@ -58,16 +52,21 @@ public class Material {
 		this.id = id;
 	}
 
-	public boolean isLibre() {
-		return libre;
+	public int getPrecio() {
+		return precio;
 	}
 
-	public void setLibre(boolean libre) {
-		this.libre = libre;
+	public void setPrecio(int precio) {
+		this.precio = precio;
 	}
 
+	@Override
 	public String toString() {
-		return "Material [nombre=" + nombre + ", id=" + id + ", libre=" + libre + "]";
+		return "Material [nombre=" + nombre + ", id=" + id + ", precio=" + precio + ", getNombre()=" + getNombre()
+				+ ", getId()=" + getId() + ", getPrecio()=" + getPrecio() + "]";
 	}
-	
+
+
+
+
 }
