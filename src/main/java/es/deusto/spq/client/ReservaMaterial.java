@@ -1,6 +1,6 @@
 package es.deusto.spq.client;
 
-public class ClaseReservaMaterial {
+public class ReservaMaterial {
 	private String IDMaterial;
     private Cliente Cliente;
     private int anyo;
@@ -8,7 +8,7 @@ public class ClaseReservaMaterial {
     private int dia;
     private int hora;
 	
-    public ClaseReservaMaterial(String iDMaterial, es.deusto.spq.client.Cliente cliente, int anyo, int mes, int dia,
+    public ReservaMaterial(String iDMaterial, es.deusto.spq.client.Cliente cliente, int anyo, int mes, int dia,
 			int hora) {
 		super();
 		IDMaterial = iDMaterial;
@@ -19,7 +19,7 @@ public class ClaseReservaMaterial {
 		this.hora = hora;
 	}
     
-    public ClaseReservaMaterial() {
+    public ReservaMaterial() {
 		super();
 		IDMaterial = "";
 		Cliente = null;
