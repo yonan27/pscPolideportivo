@@ -14,7 +14,7 @@ public class Material {
 	private String nombre;
 	private String id;
 	private int precio;
-	private int prueba;
+	
 	
 	/** Constructor de la clase Instalación
 	 * @param nombre del material
