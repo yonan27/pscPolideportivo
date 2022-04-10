@@ -14,6 +14,7 @@ public class Material {
 	private String nombre;
 	private String id;
 	private int precio;
+	private int pruebacommit;
 	
 	
 	/** Constructor de la clase Instalación
