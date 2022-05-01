@@ -1,41 +1,41 @@
 package es.deusto.spq.client.gui;
 
-import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import java.awt.Color;
-import javax.swing.JLabel;
 import java.awt.BorderLayout;
-import javax.swing.JList;
-import javax.swing.JTable;
-import javax.swing.JPanel;
-import javax.swing.JTextPane;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.border.LineBorder;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import es.deusto.spq.client.Cliente;
-
-import javax.swing.JCheckBox;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-
+import javax.swing.SwingConstants;
 
 public class VentanaGestionCliente extends Cliente{
 
 	private JFrame frame;
 	private JLabel labelNombreDeTabla;
+	Dimension d = Toolkit.getDefaultToolkit ().getScreenSize ();
+	Dimension frameSize = new Dimension (1060, 600);
 
 	/**
-	 * Launch the application.
+	 * Launch the application
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaGestionCliente window = new VentanaGestionCliente();
+					VentanaGestionCliente window = new VentanaGestionCliente(null);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,23 +47,27 @@ public class VentanaGestionCliente extends Cliente{
 	/**
 	 * Create the application.
 	 */
-	public VentanaGestionCliente() {
+	public VentanaGestionCliente(final es.deusto.spq.client.Controller controller) {
 		initialize();
+		
 	}
 
 	/**
-	 * Inicilizo frame.
+	 * Initialize frame.
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setVisible(true);
+		frame.setBounds (d.width/2 - frameSize.width/2, d.height/2 - frameSize.height/2, frameSize.width, frameSize.height);
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.setBackground(Color.WHITE);
-		frame.setBounds(100, 100, 673, 322);
+		frame.setTitle("PSC Polideportivo - Admin");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JLabel labelDeArriba = new JLabel("                        Gestion de clientes\r\n");
+		JLabel labelDeArriba = new JLabel("Gestion de clientes\r\n");
+		labelDeArriba.setHorizontalAlignment(SwingConstants.CENTER);
 		labelDeArriba.setForeground(Color.BLACK);
-		labelDeArriba.setFont(new Font("Goudy Old Style", Font.BOLD, 30));
+		labelDeArriba.setFont(new Font("Forte", Font.BOLD, 30));
 		labelDeArriba.setBackground(Color.ORANGE);
 		frame.getContentPane().add(labelDeArriba, BorderLayout.NORTH);
 		
@@ -76,9 +80,11 @@ public class VentanaGestionCliente extends Cliente{
 		textFieldNombreCliente.setColumns(10);
 		
 		JCheckBox Box = new JCheckBox("Administrador\r\n");
+		Box.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
 		panelDerecho.add(Box);
 		
 		JButton btnEliminarCliente = new JButton("Eliminar Cliente");
+		btnEliminarCliente.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
 		btnEliminarCliente.setBackground(Color.RED);
 		panelDerecho.add(btnEliminarCliente);
 		
@@ -87,9 +93,10 @@ public class VentanaGestionCliente extends Cliente{
 		frame.getContentPane().add(panelListaClientes, BorderLayout.CENTER);
 		
 		labelNombreDeTabla = new JLabel("Lista de clientes");
+		labelNombreDeTabla.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
 		panelListaClientes.add(labelNombreDeTabla);
 		
-		JList listdeClientes = new JList();
+		JList<Object> listdeClientes = new JList<Object>();
 		panelListaClientes.add(listdeClientes);
 		
 		
@@ -102,5 +109,4 @@ public class VentanaGestionCliente extends Cliente{
 		});
 	}
 
-	
 }

@@ -63,7 +63,9 @@ public class VentanaAdmin extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-							
+				// TODO Auto-generated method stub
+				new VentanaModificarClientesAdmin(controller);
+				VentanaAdmin.this.dispose();
 			}
 		});
 		
@@ -71,7 +73,9 @@ public class VentanaAdmin extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-							
+				// TODO Auto-generated method stub
+				new VentanaGestionCliente(controller);
+				VentanaAdmin.this.dispose();			
 			}
 		});
 						
@@ -90,6 +94,7 @@ public class VentanaAdmin extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(1060, 600);
 		this.setVisible(true);
+		setLocationRelativeTo(null);
 		this.setTitle("PSC Polideportivo - Admin");
 
 	}
