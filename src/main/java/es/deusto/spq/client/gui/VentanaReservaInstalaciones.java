@@ -51,8 +51,8 @@ public class VentanaReservaInstalaciones extends JFrame {
 		contentpane.add(listaInstalaciones);
 
 		JLabel lTitulo = new JLabel("Realizar una reserva");
-		lTitulo.setFont(new Font("Franklin Gothic Medium", Font.BOLD, 40));
-		lTitulo.setBounds(341, 35, 385, 42);
+		lTitulo.setFont(new Font("Goudy Old Style", Font.BOLD, 40));
+		lTitulo.setBounds(345, 35, 331, 42);
 		contentpane.add(lTitulo);
 		
 		JLabel lInstalacionesDisponibles = new JLabel();
@@ -169,7 +169,7 @@ public class VentanaReservaInstalaciones extends JFrame {
 
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(1066, 600);
+		this.setSize(1060, 600);
 		this.setVisible(true);
 		setLocationRelativeTo(null);
 		this.setTitle("Reservas");
