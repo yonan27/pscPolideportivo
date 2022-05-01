@@ -92,18 +92,14 @@ public class VentanaGestionCliente extends Cliente{
 		JList listdeClientes = new JList();
 		panelListaClientes.add(listdeClientes);
 		
+		
 		btnEliminarCliente.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Cliente(listdeClientes);
+				
 			}
 		});
-	}
-
-	protected void Cliente(JList listdeClientes) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	
