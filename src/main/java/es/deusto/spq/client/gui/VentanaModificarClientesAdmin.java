@@ -28,9 +28,9 @@ public class VentanaModificarClientesAdmin extends JFrame {
 	private JPanel contentpane;
 	private JLabel labelUsuario = new JLabel();
 	private JLabel labelContrasenya = new JLabel();
-	private JPasswordField textoContrasenya = new JPasswordField();
-	private JButton botonRegistrarse = new JButton();
 	private final JComboBox comboBox = new JComboBox();
+	private JTextField textField;
+	private final JButton btnBorrarUsuario = new JButton();
 
 	public VentanaModificarClientesAdmin(final es.deusto.spq.client.Controller controller) {
 
@@ -41,43 +41,46 @@ public class VentanaModificarClientesAdmin extends JFrame {
 		
 
 		JLabel labelTitle = new JLabel("PSC Polideportivo");
-		labelTitle.setFont(new Font("Forte", Font.BOLD, 40));
 		labelTitle.setBounds(49, 33, 334, 50);
+		labelTitle.setFont(new Font("Forte", Font.BOLD, 40));
 		contentpane.add(labelTitle);
+		labelUsuario.setBounds(23, 125, 147, 20);
 
 		labelUsuario.setText("Seleccionar usuario:");
 		labelUsuario.setOpaque(true);
-		labelUsuario.setBounds(23, 125, 147, 20);
 		labelUsuario.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
-		contentpane.add(labelUsuario, BorderLayout.SOUTH);
+		contentpane.add(labelUsuario);
+		labelContrasenya.setBounds(10, 174, 264, 20);
 
 		labelContrasenya.setText("Cambiar nombre de usuario de clientes");
-		labelContrasenya.setBounds(10, 174, 264, 20);
 		labelContrasenya.setOpaque(true);
 		labelContrasenya.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
 		contentpane.add(labelContrasenya);
-				
-		textoContrasenya.setBounds(284, 175, 99, 20);
-		contentpane.add(textoContrasenya);
-		
-		botonRegistrarse.setBackground(SystemColor.inactiveCaptionBorder);
-		botonRegistrarse.setBounds(215, 248, 168, 32);
-		botonRegistrarse.setText("Borrar Usuario");
-		botonRegistrarse.setFont(new Font("Goudy Old Style", Font.BOLD | Font.ITALIC, 16));
-		contentpane.add(botonRegistrarse);
 		comboBox.setBounds(180, 125, 94, 22);
 		
 		contentpane.add(comboBox);
-
-		botonRegistrarse.addActionListener(new ActionListener() {
-			@Override
+		
+		textField = new JTextField();
+		textField.setBounds(282, 175, 86, 20);
+		contentpane.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnGuardarUsuario = new JButton();
+		btnGuardarUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				new VentanaRegistro(controller);
-				dispose();
-
 			}
 		});
+		btnGuardarUsuario.setText("Guardar Usuario");
+		btnGuardarUsuario.setFont(new Font("Goudy Old Style", Font.BOLD | Font.ITALIC, 16));
+		btnGuardarUsuario.setBackground(SystemColor.inactiveCaptionBorder);
+		btnGuardarUsuario.setBounds(33, 248, 168, 32);
+		contentpane.add(btnGuardarUsuario);
+		btnBorrarUsuario.setText("Borrar Usuario");
+		btnBorrarUsuario.setFont(new Font("Goudy Old Style", Font.BOLD | Font.ITALIC, 16));
+		btnBorrarUsuario.setBackground(SystemColor.inactiveCaptionBorder);
+		btnBorrarUsuario.setBounds(211, 248, 168, 32);
+		
+		contentpane.add(btnBorrarUsuario);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(440, 355);
@@ -90,7 +93,7 @@ public class VentanaModificarClientesAdmin extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaLogin window = new VentanaLogin(null);
+					VentanaModificarClientesAdmin window = new VentanaModificarClientesAdmin(null);
 					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -98,5 +101,4 @@ public class VentanaModificarClientesAdmin extends JFrame {
 			}
 		});
 	}
-
 }
