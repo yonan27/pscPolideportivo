@@ -11,13 +11,22 @@ import javax.swing.JTable;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.border.LineBorder;
+
+import es.deusto.spq.client.Cliente;
+
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
+import javax.swing.JButton;
 
-public class VentanaGestionCliente {
+
+public class VentanaGestionCliente extends Cliente{
 
 	private JFrame frame;
+	private JLabel labelNombreDeTabla;
 
 	/**
 	 * Launch the application.
@@ -47,8 +56,8 @@ public class VentanaGestionCliente {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(Color.ORANGE);
-		frame.setBackground(Color.ORANGE);
+		frame.getContentPane().setBackground(Color.WHITE);
+		frame.setBackground(Color.WHITE);
 		frame.setBounds(100, 100, 673, 322);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -59,7 +68,7 @@ public class VentanaGestionCliente {
 		frame.getContentPane().add(labelDeArriba, BorderLayout.NORTH);
 		
 		JPanel panelDerecho = new JPanel();
-		panelDerecho.setBackground(Color.ORANGE);
+		panelDerecho.setBackground(Color.WHITE);
 		frame.getContentPane().add(panelDerecho, BorderLayout.EAST);
 		
 		JTextField textFieldNombreCliente = new JTextField();
@@ -69,11 +78,33 @@ public class VentanaGestionCliente {
 		JCheckBox Box = new JCheckBox("Administrador\r\n");
 		panelDerecho.add(Box);
 		
+		JButton btnEliminarCliente = new JButton("Eliminar Cliente");
+		btnEliminarCliente.setBackground(Color.RED);
+		panelDerecho.add(btnEliminarCliente);
+		
+		
 		JPanel panelListaClientes = new JPanel();
 		frame.getContentPane().add(panelListaClientes, BorderLayout.CENTER);
 		
+		labelNombreDeTabla = new JLabel("Lista de clientes");
+		panelListaClientes.add(labelNombreDeTabla);
+		
 		JList listdeClientes = new JList();
 		panelListaClientes.add(listdeClientes);
+		
+		btnEliminarCliente.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Cliente(listdeClientes);
+			}
+		});
 	}
 
+	protected void Cliente(JList listdeClientes) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 }

@@ -1,9 +1,13 @@
 package es.deusto.spq.client;
 
+import java.util.ArrayList;
+
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.PrimaryKey;
+
+import org.glassfish.grizzly.http.server.AddOn;
 
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
@@ -17,7 +21,9 @@ public class Cliente {
 	private String email;
 	private String contrasenya;
 	private boolean Admin;
-	
+	private ArrayList<Cliente> listaDeClientes;
+
+
 	/** Constructor del cliente 
 	 * @param DNI Dni del cliente
 	 * @param nombre Nombre del cliente
@@ -106,12 +112,23 @@ public class Cliente {
 	public void setAdmin(boolean admin) {
 		Admin = admin;
 	}
+	
+	public ArrayList<Cliente> getListaDeClientes() {
+	
+		return listaDeClientes;
+	}
+
+	public void setListaDeClientes(ArrayList<Cliente> listaDeClientes) {
+		this.listaDeClientes = listaDeClientes;
+	}
 
 	@Override
 	public String toString() {
 		return "Cliente [DNI=" + DNI + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", email="
-				+ email + ", contrasenya=" + contrasenya + ", Admin=" + Admin + "]";
+				+ email + ", contrasenya=" + contrasenya + ", Admin=" + Admin + ", listaDeClientes=" + listaDeClientes
+				+ "]";
 	}
-		
+
+	
 
 }
