@@ -2,7 +2,6 @@ package es.deusto.spq.client.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
@@ -12,11 +11,11 @@ import java.lang.ModuleLayer.Controller;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JComboBox;
 
 public class VentanaModificarClientesAdmin extends JFrame {
 
@@ -26,11 +25,23 @@ public class VentanaModificarClientesAdmin extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private JPanel contentpane;
-	private JLabel labelUsuario = new JLabel();
+	private JLabel labelDNI = new JLabel();
+	private JLabel labelNombre = new JLabel();
+	private JLabel labelApellido = new JLabel();
+	private JLabel labelEdad = new JLabel();
+	private JLabel labelEmail = new JLabel();
 	private JLabel labelContrasenya = new JLabel();
-	private final JComboBox comboBox = new JComboBox();
-	private JTextField textField;
-	private final JButton btnBorrarUsuario = new JButton();
+	private JTextField textoDNI = new JTextField();
+	private JTextField textoNombre = new JTextField();
+	private JTextField textoApellido = new JTextField();
+	private JTextField textoEdad = new JTextField();
+	private JTextField textoEmail = new JTextField();
+	private JPasswordField textoContrasenya = new JPasswordField();
+	private JButton botonModificar = new JButton();
+
+	public class JNumberTextField extends JTextField {
+		private static final long serialVersionUID = 1L;
+	}
 
 	public VentanaModificarClientesAdmin(final es.deusto.spq.client.Controller controller) {
 
@@ -40,65 +51,77 @@ public class VentanaModificarClientesAdmin extends JFrame {
 		contentpane.setLayout(null);
 		
 
-		JLabel labelTitle = new JLabel("PSC Polideportivo");
-		labelTitle.setBounds(49, 33, 334, 50);
+		JLabel labelTitle = new JLabel("Editar Cliente");
 		labelTitle.setFont(new Font("Forte", Font.BOLD, 40));
+		labelTitle.setBounds(86, 36, 277, 50);
 		contentpane.add(labelTitle);
-		labelUsuario.setBounds(23, 125, 147, 20);
 
-		labelUsuario.setText("Seleccionar usuario:");
-		labelUsuario.setOpaque(true);
-		labelUsuario.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
-		contentpane.add(labelUsuario);
-		labelContrasenya.setBounds(10, 174, 264, 20);
-
-		labelContrasenya.setText("Cambiar nombre de usuario de clientes");
+		labelDNI.setText(" DNI:");
+		labelDNI.setOpaque(true);
+		labelDNI.setBounds(108, 124, 44, 20);
+		labelDNI.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
+		contentpane.add(labelDNI, BorderLayout.SOUTH);
+		
+		labelNombre.setText(" Nombre:");
+		labelNombre.setBounds(99, 175, 71, 20);
+		labelNombre.setOpaque(true);
+		labelNombre.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
+		contentpane.add(labelNombre);
+		
+		labelApellido.setText(" Apellido:");
+		labelApellido.setBounds(86, 225, 73, 20);
+		labelApellido.setOpaque(true);
+		labelApellido.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
+		contentpane.add(labelApellido);
+				
+		labelEdad.setText(" Edad:");
+		labelEdad.setBounds(107, 275, 99, 20);
+		labelEdad.setOpaque(true);
+		labelEdad.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
+		contentpane.add(labelEdad);
+		
+		labelEmail.setText(" Email:");
+		labelEmail.setBounds(104, 325, 71, 20);
+		labelEmail.setOpaque(true);
+		labelEmail.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
+		contentpane.add(labelEmail);
+		
+		labelContrasenya.setText(" Contraseña:");
+		labelContrasenya.setBounds(86, 375, 120, 20);
 		labelContrasenya.setOpaque(true);
 		labelContrasenya.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
 		contentpane.add(labelContrasenya);
-		comboBox.setBounds(180, 125, 94, 22);
 		
-		contentpane.add(comboBox);
+		botonModificar.setForeground(SystemColor.text);
+		botonModificar.setBackground(new Color(0, 51, 255));
+		botonModificar.setBounds(139, 470, 143, 32);
+		botonModificar.setText("Guardar");
+		botonModificar.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
+		contentpane.add(botonModificar);
+
+		textoDNI.setBounds(214, 125, 143, 20);
+		contentpane.add(textoDNI);
+
+		textoNombre.setBounds(214, 175, 143, 20);
+		contentpane.add(textoNombre);
+
+		textoApellido.setBounds(216, 225, 143, 20);
+		contentpane.add(textoApellido);
 		
-		textField = new JTextField();
-		textField.setBounds(282, 175, 86, 20);
-		contentpane.add(textField);
-		textField.setColumns(10);
-		
-		JButton btnGuardarUsuario = new JButton();
-		btnGuardarUsuario.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnGuardarUsuario.setText("Guardar Usuario");
-		btnGuardarUsuario.setFont(new Font("Goudy Old Style", Font.BOLD | Font.ITALIC, 16));
-		btnGuardarUsuario.setBackground(SystemColor.inactiveCaptionBorder);
-		btnGuardarUsuario.setBounds(33, 248, 168, 32);
-		contentpane.add(btnGuardarUsuario);
-		btnBorrarUsuario.setText("Borrar Usuario");
-		btnBorrarUsuario.setFont(new Font("Goudy Old Style", Font.BOLD | Font.ITALIC, 16));
-		btnBorrarUsuario.setBackground(SystemColor.inactiveCaptionBorder);
-		btnBorrarUsuario.setBounds(211, 248, 168, 32);
-		
-		contentpane.add(btnBorrarUsuario);
+		textoEdad.setBounds(214, 275, 143, 20);
+		contentpane.add(textoEdad);
+
+		textoEmail.setBounds(214, 325, 143, 20);
+		contentpane.add(textoEmail);
+
+		textoContrasenya.setBounds(214, 375, 143, 20);
+		contentpane.add(textoContrasenya);
+
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(440, 355);
+		setSize(440, 600);
 		setVisible(true);
 		setLocationRelativeTo(null);
-		setTitle("PSC Polideportivo");
-	}
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaModificarClientesAdmin window = new VentanaModificarClientesAdmin(null);
-					window.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		setTitle("Registrarse como nuevo cliente");
 	}
 }

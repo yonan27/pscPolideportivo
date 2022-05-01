@@ -32,6 +32,10 @@ public class VentanaReservaMaterial extends JFrame {
 	
 	private JList listaMaterial = new JList();
 	private JButton botonFiltrar = new JButton();
+	private JComboBox comboBoxAnyo = new JComboBox();
+	private JComboBox comboBoxMes = new JComboBox();
+	private JComboBox comboBoxDia = new JComboBox();
+	private JComboBox comboBoxHora = new JComboBox();
 	private JButton botonReservar = new JButton();
 	private JButton botonAtras = new JButton();
 	
@@ -52,10 +56,73 @@ public class VentanaReservaMaterial extends JFrame {
 		contentpane.add(lTitulo);
 		
 		JLabel lMaterialDisponible = new JLabel();
-		lMaterialDisponible.setText("Instalaciones disponibles");
+		lMaterialDisponible.setText("Material disponible");
 		lMaterialDisponible.setFont(new Font("Goudy Old Style", Font.BOLD, 23));
 		lMaterialDisponible.setBounds(142, 99, 300, 48);
 		contentpane.add(lMaterialDisponible);
+		
+		JLabel lFiltrarPorFecha = new JLabel();
+		lFiltrarPorFecha.setText("Filtrar por fecha");
+		lFiltrarPorFecha.setFont(new Font("Goudy Old Style", Font.BOLD, 23));
+		lFiltrarPorFecha.setBounds(628, 99, 300, 48);
+		contentpane.add(lFiltrarPorFecha);
+		
+		JLabel lAnyo = new JLabel();
+		lAnyo.setText("Año");
+		lAnyo.setFont(new Font("Goudy Old Style", Font.BOLD, 19));
+		lAnyo.setBounds(629, 133, 61, 48);
+		contentpane.add(lAnyo);
+		
+		JLabel lMes = new JLabel();
+		lMes.setText("Mes");
+		lMes.setFont(new Font("Goudy Old Style", Font.BOLD, 19));
+		lMes.setBounds(628, 210, 61, 48);
+		contentpane.add(lMes);
+		
+		JLabel lDia = new JLabel();
+		lDia.setText("Día");
+		lDia.setFont(new Font("Goudy Old Style", Font.BOLD, 19));
+		lDia.setBounds(629, 286, 61, 48);
+		contentpane.add(lDia);
+		
+		JLabel lHora = new JLabel();
+		lHora.setText("Hora");
+		lHora.setFont(new Font("Goudy Old Style", Font.BOLD, 19));
+		lHora.setBounds(630, 362, 61, 48);
+		contentpane.add(lHora);
+		
+		
+		comboBoxAnyo.setFont(new Font("Goudy Old Style", Font.PLAIN, 19));
+		comboBoxAnyo.setBounds(627, 175, 190, 30);
+		comboBoxAnyo.addItem("Seleccione el año");
+		for (int i = 2022; i <= 2024; i++) {
+			comboBoxAnyo.addItem(Integer.toString(i));
+		}
+		contentpane.add(comboBoxAnyo);
+		
+		comboBoxMes.setFont(new Font("Goudy Old Style", Font.PLAIN, 19));
+		comboBoxMes.setBounds(630, 253, 190, 30);
+		comboBoxMes.addItem("Seleccione el mes");
+		for (int i = 1; i <= 12; i++) {
+			comboBoxMes.addItem(Integer.toString(i));
+		}
+		contentpane.add(comboBoxMes);
+		
+		comboBoxDia.setFont(new Font("Goudy Old Style", Font.PLAIN, 19));
+		comboBoxDia.setBounds(630, 329, 190, 30);
+		comboBoxDia.addItem("Seleccione el día");
+		for (int i = 1; i <= 31; i++) {
+			comboBoxDia.addItem(Integer.toString(i));
+		}
+		contentpane.add(comboBoxDia);
+		
+		comboBoxHora.setFont(new Font("Goudy Old Style", Font.PLAIN, 19));
+		comboBoxHora.setBounds(630, 404, 190, 30);
+		comboBoxHora.addItem("Seleccione la hora");
+		for (int i = 8; i <= 23; i++) {
+			comboBoxHora.addItem(Integer.toString(i));
+		}
+		contentpane.add(comboBoxHora);
 		
 		botonFiltrar.setText("Filtrar");
 		botonFiltrar.setForeground(Color.WHITE);
