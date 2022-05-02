@@ -1,5 +1,4 @@
 # ⛹️🏐 PSC Polideportivo 🏸🏊
-# PSC Polideportivo ⛹️🏊🏸
 
 PSC Polideportivo es una aplicación mediante la cual el cliente podrá reservar las distintas instalaciones disponibles del polideportivo. Para ello, deberá elegir un horario que no esté ocupado previamente. En el caso de que fuese necesario, también podrá reservar los materiales para realizar dicha actividad. 
 
