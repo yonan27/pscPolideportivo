@@ -56,7 +56,7 @@ public class VentanaModificarClientesAdmin extends JFrame {
 		labelTitle.setBounds(86, 36, 277, 50);
 		contentpane.add(labelTitle);
 
-		labelDNI.setText(" DNI:");
+		labelDNI.setText("DNI:");
 		labelDNI.setOpaque(true);
 		labelDNI.setBounds(108, 124, 44, 20);
 		labelDNI.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
@@ -68,25 +68,25 @@ public class VentanaModificarClientesAdmin extends JFrame {
 		labelNombre.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
 		contentpane.add(labelNombre);
 		
-		labelApellido.setText(" Apellido:");
-		labelApellido.setBounds(86, 225, 73, 20);
+		labelApellido.setText("Apellido:");
+		labelApellido.setBounds(98, 225, 61, 20);
 		labelApellido.setOpaque(true);
 		labelApellido.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
 		contentpane.add(labelApellido);
 				
-		labelEdad.setText(" Edad:");
+		labelEdad.setText("Edad:");
 		labelEdad.setBounds(107, 275, 99, 20);
 		labelEdad.setOpaque(true);
 		labelEdad.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
 		contentpane.add(labelEdad);
 		
-		labelEmail.setText(" Email:");
+		labelEmail.setText("Email:");
 		labelEmail.setBounds(104, 325, 71, 20);
 		labelEmail.setOpaque(true);
 		labelEmail.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
 		contentpane.add(labelEmail);
 		
-		labelContrasenya.setText(" ContraseÃ±a:");
+		labelContrasenya.setText(" Contraseña:");
 		labelContrasenya.setBounds(86, 375, 120, 20);
 		labelContrasenya.setOpaque(true);
 		labelContrasenya.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
@@ -122,6 +122,6 @@ public class VentanaModificarClientesAdmin extends JFrame {
 		setSize(440, 600);
 		setVisible(true);
 		setLocationRelativeTo(null);
-		setTitle("Registrarse como nuevo cliente");
+		setTitle("PSC Polideportivo - Admin");
 	}
 }

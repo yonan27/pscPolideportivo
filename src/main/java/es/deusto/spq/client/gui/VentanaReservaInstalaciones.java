@@ -6,24 +6,15 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.lang.ModuleLayer.Controller;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Properties;
 
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import org.glassfish.hk2.api.ServiceLocator;
 
 public class VentanaReservaInstalaciones extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -68,7 +59,7 @@ public class VentanaReservaInstalaciones extends JFrame {
 		contentpane.add(lFiltrarPorFecha);
 		
 		JLabel lAnyo = new JLabel();
-		lAnyo.setText("AÃ±o");
+		lAnyo.setText("Año");
 		lAnyo.setFont(new Font("Goudy Old Style", Font.BOLD, 19));
 		lAnyo.setBounds(629, 133, 61, 48);
 		contentpane.add(lAnyo);
@@ -80,7 +71,7 @@ public class VentanaReservaInstalaciones extends JFrame {
 		contentpane.add(lMes);
 		
 		JLabel lDia = new JLabel();
-		lDia.setText("DÃ­a");
+		lDia.setText("Día");
 		lDia.setFont(new Font("Goudy Old Style", Font.BOLD, 19));
 		lDia.setBounds(629, 286, 61, 48);
 		contentpane.add(lDia);
@@ -94,7 +85,7 @@ public class VentanaReservaInstalaciones extends JFrame {
 		
 		comboBoxAnyo.setFont(new Font("Goudy Old Style", Font.PLAIN, 19));
 		comboBoxAnyo.setBounds(627, 175, 190, 30);
-		comboBoxAnyo.addItem("Seleccione el aÃ±o");
+		comboBoxAnyo.addItem("Seleccione el año");
 		for (int i = 2022; i <= 2024; i++) {
 			comboBoxAnyo.addItem(Integer.toString(i));
 		}
@@ -110,7 +101,7 @@ public class VentanaReservaInstalaciones extends JFrame {
 		
 		comboBoxDia.setFont(new Font("Goudy Old Style", Font.PLAIN, 19));
 		comboBoxDia.setBounds(630, 329, 190, 30);
-		comboBoxDia.addItem("Seleccione el dÃ­a");
+		comboBoxDia.addItem("Seleccione el día");
 		for (int i = 1; i <= 31; i++) {
 			comboBoxDia.addItem(Integer.toString(i));
 		}

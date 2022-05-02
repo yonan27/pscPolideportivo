@@ -45,7 +45,7 @@ public class VentanaLogin extends JFrame {
 		labelTitle.setBounds(49, 33, 334, 50);
 		contentpane.add(labelTitle);
 
-		labelUsuario.setText(" Email:");
+		labelUsuario.setText("Email:");
 		labelUsuario.setOpaque(true);
 		labelUsuario.setBounds(85, 125, 55, 20);
 		labelUsuario.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
@@ -54,7 +54,7 @@ public class VentanaLogin extends JFrame {
 		textoUsuario.setBounds(179, 125, 169, 20);
 		contentpane.add(textoUsuario);
 
-		labelContrasenya.setText(" ContraseÃ±a:");
+		labelContrasenya.setText("Contraseña:");
 		labelContrasenya.setBounds(65, 175, 89, 20);
 		labelContrasenya.setOpaque(true);
 		labelContrasenya.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
@@ -66,7 +66,7 @@ public class VentanaLogin extends JFrame {
 		botonIniciarSesion.setForeground(SystemColor.text);
 		botonIniciarSesion.setBackground(new Color(0, 51, 255));
 		botonIniciarSesion.setBounds(262, 243, 121, 32);
-		botonIniciarSesion.setText("Iniciar sesiÃ³n");
+		botonIniciarSesion.setText("Iniciar sesión");
 		botonIniciarSesion.setFont(new Font("Goudy Old Style", Font.BOLD | Font.ITALIC, 16));
 		contentpane.add(botonIniciarSesion);
 		

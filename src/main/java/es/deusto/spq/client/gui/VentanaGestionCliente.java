@@ -1,25 +1,23 @@
 package es.deusto.spq.client.gui;
 
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import es.deusto.spq.client.Cliente;
-import javax.swing.SwingConstants;
 
 public class VentanaGestionCliente extends Cliente{
 
@@ -64,7 +62,7 @@ public class VentanaGestionCliente extends Cliente{
 		frame.setTitle("PSC Polideportivo - Admin");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JLabel labelDeArriba = new JLabel("Gestion de clientes\r\n");
+		JLabel labelDeArriba = new JLabel("Gestion de clientes");
 		labelDeArriba.setHorizontalAlignment(SwingConstants.CENTER);
 		labelDeArriba.setForeground(Color.BLACK);
 		labelDeArriba.setFont(new Font("Forte", Font.BOLD, 30));
@@ -75,19 +73,16 @@ public class VentanaGestionCliente extends Cliente{
 		panelDerecho.setBackground(Color.WHITE);
 		frame.getContentPane().add(panelDerecho, BorderLayout.EAST);
 		
-		JTextField textFieldNombreCliente = new JTextField();
-		panelDerecho.add(textFieldNombreCliente);
-		textFieldNombreCliente.setColumns(10);
+		JButton btnModificarCliente = new JButton("Modificar cliente");
+		btnModificarCliente.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
+		btnModificarCliente.setForeground(SystemColor.text);
+		btnModificarCliente.setBackground(new Color(0, 51, 255));
+		panelDerecho.add(btnModificarCliente);
 		
-		JCheckBox Box = new JCheckBox("Administrador\r\n");
-		Box.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
-		panelDerecho.add(Box);
-		
-		JButton btnEliminarCliente = new JButton("Eliminar Cliente");
+		JButton btnEliminarCliente = new JButton("Eliminar cliente");
 		btnEliminarCliente.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
 		btnEliminarCliente.setBackground(Color.RED);
 		panelDerecho.add(btnEliminarCliente);
-		
 		
 		JPanel panelListaClientes = new JPanel();
 		frame.getContentPane().add(panelListaClientes, BorderLayout.CENTER);
@@ -99,6 +94,16 @@ public class VentanaGestionCliente extends Cliente{
 		JList<Object> listdeClientes = new JList<Object>();
 		panelListaClientes.add(listdeClientes);
 		
+		btnModificarCliente.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VentanaModificarClientesAdmin clientes = new VentanaModificarClientesAdmin(null);
+				clientes.setVisible(true);
+				VentanaGestionCliente.this.frame.dispose();
+				
+			}
+		});
 		
 		btnEliminarCliente.addActionListener(new ActionListener() {
 			

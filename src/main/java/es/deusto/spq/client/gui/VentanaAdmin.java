@@ -23,8 +23,8 @@ public class VentanaAdmin extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private JPanel contentpane;
 	private JButton botonClientes = new JButton();
-	private JButton buttonReservas = new JButton();
-	private JButton buttonSalir = new JButton();
+	private JButton botonReservas = new JButton();
+	private JButton botonSalir = new JButton();
 	
 	public VentanaAdmin(final Controller controller){
 		contentpane = new JPanel();
@@ -45,27 +45,26 @@ public class VentanaAdmin extends JFrame{
 		botonClientes.setFont(new Font("Goudy Old Style", Font.BOLD, 23));
 		contentpane.add(botonClientes);
 		
-		buttonReservas.setForeground(SystemColor.text);
-		buttonReservas.setBackground(new Color(0, 51, 255));
-		buttonReservas.setBounds(423, 307, 200, 50);
-		buttonReservas.setText("Reservas");
-		buttonReservas.setFont(new Font("Goudy Old Style", Font.BOLD, 23));
-		contentpane.add(buttonReservas);
+		botonReservas.setForeground(SystemColor.text);
+		botonReservas.setBackground(new Color(0, 51, 255));
+		botonReservas.setBounds(423, 307, 200, 50);
+		botonReservas.setText("Reservas");
+		botonReservas.setFont(new Font("Goudy Old Style", Font.BOLD, 23));
+		contentpane.add(botonReservas);
 				
-		buttonSalir.setForeground(SystemColor.black);
-		buttonSalir.setBackground(SystemColor.inactiveCaptionBorder);
-		buttonSalir.setBounds(22, 492, 90, 42);
-		buttonSalir.setText("Salir");
-		buttonSalir.setFont(new Font("Goudy Old Style", Font.BOLD, 20));
-		contentpane.add(buttonSalir);
+		botonSalir.setForeground(SystemColor.black);
+		botonSalir.setBackground(SystemColor.inactiveCaptionBorder);
+		botonSalir.setBounds(22, 492, 90, 42);
+		botonSalir.setText("Salir");
+		botonSalir.setFont(new Font("Goudy Old Style", Font.BOLD, 20));
+		contentpane.add(botonSalir);
 			
-		buttonReservas.addActionListener(new ActionListener() {
+		botonReservas.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				new VentanaModificarClientesAdmin(controller);
-				VentanaAdmin.this.dispose();
+				
 			}
 		});
 		
@@ -79,7 +78,7 @@ public class VentanaAdmin extends JFrame{
 			}
 		});
 						
-		buttonSalir.addActionListener(new ActionListener() {
+		botonSalir.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
