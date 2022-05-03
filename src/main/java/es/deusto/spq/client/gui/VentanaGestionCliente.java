@@ -10,6 +10,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -92,6 +93,8 @@ public class VentanaGestionCliente extends Cliente{
 		panelListaClientes.add(labelNombreDeTabla);
 		
 		JList<Object> listdeClientes = new JList<Object>();
+		DefaultListModel<Cliente> modeloListaClientes = new DefaultListModel<>();
+		listdeClientes.getClientProperty(listdeClientes);
 		panelListaClientes.add(listdeClientes);
 		
 		btnModificarCliente.addActionListener(new ActionListener() {

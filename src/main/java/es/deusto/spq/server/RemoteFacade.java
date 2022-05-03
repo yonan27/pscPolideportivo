@@ -19,5 +19,5 @@ public class RemoteFacade {
 
 	private static final long serialVersionUID = 1L;
 	private static RemoteFacade instance;
-
+	
 }

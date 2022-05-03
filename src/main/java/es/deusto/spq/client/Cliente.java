@@ -11,7 +11,6 @@ import org.glassfish.grizzly.http.server.AddOn;
 
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
-	
 public class Cliente {
 	@PrimaryKey
 	private String DNI;

@@ -94,7 +94,7 @@ public class VentanaAdmin extends JFrame{
 		this.setSize(1060, 600);
 		this.setVisible(true);
 		setLocationRelativeTo(null);
-		this.setTitle("PSC Polideportivo - Admin");
+		this.setTitle("Ventana Administrador\r\n");
 
 	}
 	

@@ -7,7 +7,6 @@ import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable
 @Inheritance(strategy=InheritanceStrategy.NEW_TABLE)
-
 public class ReservaInstalaciones {
     @PrimaryKey
 	private String IDReserva;
