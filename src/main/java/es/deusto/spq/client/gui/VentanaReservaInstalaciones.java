@@ -59,7 +59,7 @@ public class VentanaReservaInstalaciones extends JFrame {
 		contentpane.add(lFiltrarPorFecha);
 		
 		JLabel lAnyo = new JLabel();
-		lAnyo.setText("Año");
+		lAnyo.setText("Aï¿½o");
 		lAnyo.setFont(new Font("Goudy Old Style", Font.BOLD, 19));
 		lAnyo.setBounds(629, 133, 61, 48);
 		contentpane.add(lAnyo);
@@ -71,7 +71,7 @@ public class VentanaReservaInstalaciones extends JFrame {
 		contentpane.add(lMes);
 		
 		JLabel lDia = new JLabel();
-		lDia.setText("Día");
+		lDia.setText("Dï¿½a");
 		lDia.setFont(new Font("Goudy Old Style", Font.BOLD, 19));
 		lDia.setBounds(629, 286, 61, 48);
 		contentpane.add(lDia);
@@ -85,7 +85,7 @@ public class VentanaReservaInstalaciones extends JFrame {
 		
 		comboBoxAnyo.setFont(new Font("Goudy Old Style", Font.PLAIN, 19));
 		comboBoxAnyo.setBounds(627, 175, 190, 30);
-		comboBoxAnyo.addItem("Seleccione el año");
+		comboBoxAnyo.addItem("Seleccione el aï¿½o");
 		for (int i = 2022; i <= 2024; i++) {
 			comboBoxAnyo.addItem(Integer.toString(i));
 		}
@@ -101,7 +101,7 @@ public class VentanaReservaInstalaciones extends JFrame {
 		
 		comboBoxDia.setFont(new Font("Goudy Old Style", Font.PLAIN, 19));
 		comboBoxDia.setBounds(630, 329, 190, 30);
-		comboBoxDia.addItem("Seleccione el día");
+		comboBoxDia.addItem("Seleccione el dï¿½a");
 		for (int i = 1; i <= 31; i++) {
 			comboBoxDia.addItem(Integer.toString(i));
 		}

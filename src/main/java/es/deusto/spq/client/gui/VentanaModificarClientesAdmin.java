@@ -86,7 +86,7 @@ public class VentanaModificarClientesAdmin extends JFrame {
 		labelEmail.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
 		contentpane.add(labelEmail);
 		
-		labelContrasenya.setText(" Contraseña:");
+		labelContrasenya.setText(" ContraseÃ±a:");
 		labelContrasenya.setBounds(86, 375, 120, 20);
 		labelContrasenya.setOpaque(true);
 		labelContrasenya.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
@@ -117,7 +117,38 @@ public class VentanaModificarClientesAdmin extends JFrame {
 		textoContrasenya.setBounds(214, 375, 143, 20);
 		contentpane.add(textoContrasenya);
 
+		botonModificar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String dni = textoDNI.getText().toString();
+				String nombre = textoNombre.getText().toString();
+				String apellido = textoApellido.getText().toString();
+				String edad = textoEdad.getText().toString();
+				String email = textoEmail.getText().toString();
+				String contrasenya = textoContrasenya.getText().toString();
+				boolean ModificacionCorrecta = false;
+				boolean error = false;
 
+				if (textoDNI.getText().equals("") || textoNombre.getText().equals("") || textoApellido.getText().equals("")
+						|| textoEdad.getText().equals("")|| textoEmail.getText().equals("") || textoContrasenya.toString().equals("")) {
+
+					JOptionPane.showMessageDialog(null, "Por favor, rellene todos los campos.", "Error",JOptionPane.INFORMATION_MESSAGE);
+					VentanaModificarClientesAdmin.this.repaint();
+					error = true;
+				} else if (!error) {
+					
+					ModificacionCorrecta= true;
+				}
+				if (ModificacionCorrecta) {
+					JOptionPane.showMessageDialog(null, "Cliente modificado correctamente.", "Cliente modificado",JOptionPane.INFORMATION_MESSAGE);
+					VentanaLogin inicio = new VentanaLogin(controller);
+					inicio.setVisible(true);
+					VentanaModificarClientesAdmin.this.dispose();
+				}
+				}
+			});
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(440, 600);
 		setVisible(true);
