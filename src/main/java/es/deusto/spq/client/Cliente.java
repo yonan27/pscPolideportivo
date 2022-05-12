@@ -16,7 +16,7 @@ public class Cliente {
 	private String DNI;
 	private String nombre;
 	private String apellido;
-	private String edad;
+	private int edad;
 	private String email;
 	private String contrasenya;
 	private boolean Admin;
@@ -33,31 +33,36 @@ public class Cliente {
 	 * @param Admin Boolean para saber si el cliente es admin o no 
 	 */
 	
-	public Cliente() {
-		super();
-		this.DNI = "";
-		this.nombre = "";
-		this.apellido = "";
-		this.edad = "";
-		this.email = "";
-		this.contrasenya = "";
-		this.Admin = false;
-	}
+
 	
-	public Cliente(String DNI, String nombre, String apellido, String edad, String email, String contrasenya, boolean admin) {
+	
+
+	
+	public String getDNI() {
+		return DNI;
+	}
+
+	public Cliente(String dNI, String nombre, String apellido, int edad, String email, String contrasenya,
+			boolean admin, ArrayList<Cliente> listaDeClientes) {
 		super();
-		this.DNI = DNI;
+		DNI = dNI;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.edad = edad;
 		this.email = email;
 		this.contrasenya = contrasenya;
-		this.Admin = admin;
+		Admin = admin;
+		this.listaDeClientes = listaDeClientes;
 	}
-
-	
-	public String getDNI() {
-		return DNI;
+	public Cliente() {
+		super();
+		this.DNI = "";
+		this.nombre = "";
+		this.apellido = "";
+		this.edad = 0;
+		this.email = "";
+		this.contrasenya = "";
+		this.Admin = false;
 	}
 
 	public void setDNI(String dNI) {
@@ -80,14 +85,7 @@ public class Cliente {
 		this.apellido = apellido;
 	}
 
-	public String getEdad() {
-		return edad;
-	}
-
-	public void setEdad(String edad) {
-		this.edad = edad;
-	}
-
+	
 	public String getEmail() {
 		return email;
 	}

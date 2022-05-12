@@ -25,7 +25,7 @@ public class Instalacion {
 		super();
 		this.ID = "";
 		this.nombre = "";
-		this.precio = 0;
+		this.precio = 5;
 		this.libre = true;
 	}
 	

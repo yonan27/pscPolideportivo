@@ -16,6 +16,13 @@ public class Material {
 	
 	
 	
+	public Material(String nombre, String id, int precio) {
+		super();
+		this.nombre = nombre;
+		this.id = id;
+		this.precio = precio;
+	}
+
 	/** Constructor de la clase Instalación
 	 * @param nombre del material
 	 * @param id del material	
