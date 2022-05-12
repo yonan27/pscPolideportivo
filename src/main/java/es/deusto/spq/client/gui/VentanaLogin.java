@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.HeadlessException;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,6 +32,22 @@ public class VentanaLogin extends JFrame {
 	private JPasswordField textoContrasenya = new JPasswordField();
 	private JButton botonIniciarSesion = new JButton();
 	private JButton botonRegistrarse = new JButton();
+	
+
+	public VentanaLogin(JPanel contentpane, JLabel labelUsuario, JLabel labelContrasenya, JTextField textoUsuario,
+			JPasswordField textoContrasenya, JButton botonIniciarSesion, JButton botonRegistrarse)
+			throws HeadlessException {
+		super();
+		this.contentpane = contentpane;
+		this.labelUsuario = labelUsuario;
+		this.labelContrasenya = labelContrasenya;
+		this.textoUsuario = textoUsuario;
+		this.textoContrasenya = textoContrasenya;
+		this.botonIniciarSesion = botonIniciarSesion;
+		this.botonRegistrarse = botonRegistrarse;
+	}
+
+
 
 	public VentanaLogin(final es.deusto.spq.client.Controller controller) {
 
@@ -54,7 +71,7 @@ public class VentanaLogin extends JFrame {
 		textoUsuario.setBounds(179, 125, 169, 20);
 		contentpane.add(textoUsuario);
 
-		labelContrasenya.setText("Contraseña:");
+		labelContrasenya.setText("Contraseï¿½a:");
 		labelContrasenya.setBounds(65, 175, 89, 20);
 		labelContrasenya.setOpaque(true);
 		labelContrasenya.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
@@ -66,7 +83,7 @@ public class VentanaLogin extends JFrame {
 		botonIniciarSesion.setForeground(SystemColor.text);
 		botonIniciarSesion.setBackground(new Color(0, 51, 255));
 		botonIniciarSesion.setBounds(262, 243, 121, 32);
-		botonIniciarSesion.setText("Iniciar sesión");
+		botonIniciarSesion.setText("Iniciar sesiï¿½n");
 		botonIniciarSesion.setFont(new Font("Goudy Old Style", Font.BOLD | Font.ITALIC, 16));
 		contentpane.add(botonIniciarSesion);
 		
@@ -100,6 +117,14 @@ public class VentanaLogin extends JFrame {
 		setLocationRelativeTo(null);
 		setTitle("PSC Polideportivo");
 	}
+
+	
+
+	public VentanaLogin(boolean b) {
+			this(null);
+	}
+
+
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
