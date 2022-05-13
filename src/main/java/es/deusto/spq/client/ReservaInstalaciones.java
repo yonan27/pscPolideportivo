@@ -37,6 +37,7 @@ public class ReservaInstalaciones {
 		this.dia = 29;
 		this.hora = 8;
 	}
+    
         
 	public ReservaInstalaciones(String iDReserva, String iDInstalacion, String emailUsuario, int anyo, int mes, int dia, int hora) {
 		super();
