@@ -1,26 +1,19 @@
 package es.deusto.spq.Main;
 
-import java.awt.EventQueue;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import java.awt.BorderLayout;
-import javax.swing.JLabel;
+import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.ImageFilter;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import com.jgoodies.forms.layout.FormLayout.Measure;
-
 import es.deusto.spq.client.gui.VentanaLogin;
-
-import javax.swing.Icon;
-import javax.swing.JButton;
 
 public class VentanPrincipal {
 
