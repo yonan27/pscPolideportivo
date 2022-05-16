@@ -1,10 +1,15 @@
 package es.deusto.spq.server;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
+
+import es.deusto.spq.client.Cliente;
 
 @Path("/server")
 @Produces(MediaType.APPLICATION_JSON)
@@ -19,5 +24,18 @@ public class RemoteFacade {
 
 	private static final long serialVersionUID = 1L;
 	private static RemoteFacade instance;
+	
+	
+	@POST
+	@Path("/registro")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response registrarCliente(Cliente cliente) {
+		Cliente c = dbmanager.getUsuario(cliente.getEmail());
+		if(c== null) {
+			dbmanager.store(cliente);
+			return Response.status(Response.Status.OK).build();
+		}return Response.status(Response.Status.BAD_REQUEST).build();
+	}
+	
 	
 }

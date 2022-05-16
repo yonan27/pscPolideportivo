@@ -20,9 +20,8 @@ public class Cliente {
 	private String email;
 	private String contrasenya;
 	private boolean Admin;
-	private ArrayList<Cliente> listaDeClientes;
-
-
+	
+	
 	/** Constructor del cliente 
 	 * @param DNI Dni del cliente
 	 * @param nombre Nombre del cliente
@@ -33,17 +32,8 @@ public class Cliente {
 	 * @param Admin Boolean para saber si el cliente es admin o no 
 	 */
 	
-
-	
-	
-
-	
-	public String getDNI() {
-		return DNI;
-	}
-
 	public Cliente(String dNI, String nombre, String apellido, int edad, String email, String contrasenya,
-			boolean admin, ArrayList<Cliente> listaDeClientes) {
+			boolean admin) {
 		super();
 		DNI = dNI;
 		this.nombre = nombre;
@@ -52,17 +42,21 @@ public class Cliente {
 		this.email = email;
 		this.contrasenya = contrasenya;
 		Admin = admin;
-		this.listaDeClientes = listaDeClientes;
 	}
+	
 	public Cliente() {
 		super();
-		this.DNI = "";
+		DNI = "";
 		this.nombre = "";
 		this.apellido = "";
 		this.edad = 0;
 		this.email = "";
 		this.contrasenya = "";
-		this.Admin = false;
+		Admin = false;
+	}
+
+	public String getDNI() {
+		return DNI;
 	}
 
 	public void setDNI(String dNI) {
@@ -85,7 +79,14 @@ public class Cliente {
 		this.apellido = apellido;
 	}
 
-	
+	public int getEdad() {
+		return edad;
+	}
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -109,23 +110,20 @@ public class Cliente {
 	public void setAdmin(boolean admin) {
 		Admin = admin;
 	}
-	
-	public ArrayList<Cliente> getListaDeClientes() {
-	
-		return listaDeClientes;
-	}
-
-	public void setListaDeClientes(ArrayList<Cliente> listaDeClientes) {
-		this.listaDeClientes = listaDeClientes;
-	}
 
 	@Override
 	public String toString() {
 		return "Cliente [DNI=" + DNI + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", email="
-				+ email + ", contrasenya=" + contrasenya + ", Admin=" + Admin + ", listaDeClientes=" + listaDeClientes
-				+ "]";
+				+ email + ", contrasenya=" + contrasenya + ", Admin=" + Admin + "]";
 	}
+	
+	
+	
+	
+	
 
+	
+	
 	
 
 }
