@@ -7,7 +7,7 @@ import org.junit.Test;
 import es.deusto.spq.client.Cliente;
 
 public class testCliente {
-	Cliente a = new Cliente("1111A", "Pedro", "Garcia", 20, "PedroGarcia@gmail.com", "123Garcia",false, null);
+	Cliente a = new Cliente("1111A", "Pedro", "Garcia", 20, "PedroGarcia@gmail.com", "123Garcia",false);
 	Cliente b= new Cliente();
 	@Test
 	public void testGetDNI() {
@@ -65,14 +65,7 @@ public class testCliente {
 		assertEquals(true, b.isAdmin());
 		
 	}
-	@Test
-	public void testGetListaDeClientes() {
-		assertEquals(null, a.getListaDeClientes());
-		
-	}
-	public void testSetListaDeClientes() {
-		b.setListaDeClientes(null);
-		assertEquals(null, b.getListaDeClientes());
+
 		
 	}
 	
@@ -83,4 +76,4 @@ public class testCliente {
 	
 	
 
-}
+
