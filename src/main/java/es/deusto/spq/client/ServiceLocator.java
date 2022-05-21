@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -37,8 +38,8 @@ public class ServiceLocator {
 
 	}
 	
-	public boolean anadirCliente(String DNI, String nombre, String apellido, int edad, String email, String contrasenya, boolean Admin) {
-		WebTarget registerUserWebTarget = webTarget.path("server/registro");
+	public boolean agregarClientePolideportivo(String DNI, String nombre, String apellido, int edad, String email, String contrasenya, boolean Admin) {
+		WebTarget registerUserWebTarget = webTarget.path("server/registroPolideportivo");
 		Cliente c = new Cliente();
 		c.setDNI(DNI);
 		c.setNombre(nombre);
@@ -57,6 +58,24 @@ public class ServiceLocator {
 			logger.info("Usuario registrado correctamente");
 			return true;
 		}
+	}
+	
+	public int loginPolideportivo(String email, String contrasenya) {
+		WebTarget webTarget1 = webTarget.path("server/loginPolideportivo");
+		Invocation.Builder invocationBuilder = webTarget1.request(MediaType.APPLICATION_JSON);
+
+		Cliente c = new Cliente();
+		c.setEmail(email);
+		c.setContrasenya(contrasenya);
+
+		Response response = invocationBuilder.post(Entity.entity(c, MediaType.APPLICATION_JSON));
+		if (response.getStatus() == Status.OK.getStatusCode()) {
+			return 2;
+
+		} else if (response.getStatus() == Status.ACCEPTED.getStatusCode()) {
+			return 1;
+		}
+		return 0;
 	}
 
 }

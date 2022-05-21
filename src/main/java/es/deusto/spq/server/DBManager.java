@@ -1,6 +1,9 @@
 package es.deusto.spq.server;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
@@ -113,5 +116,51 @@ public class DBManager {
 
 		return user;	
 		}
+	
+	public void anadirCliente(List<Cliente> clientes) {
+		PreparedStatement preparedStatement = null;
+
+	        try {
+	            
+	        	for (Cliente c : clientes) {
+	        		String query = " INSERT INTO CLIENTE (DNI, NOMBRE, APELLIDO, EDAD, EMAIL, CONTRASENYA, ADMIN)"
+		                    + " VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+		            preparedStatement = conn.prepareStatement(query);
+
+		            preparedStatement.setString(1, c.getDNI());
+		            preparedStatement.setString(2, c.getNombre());
+		            preparedStatement.setString(3, c.getApellido());
+		            preparedStatement.setInt(4, c.getEdad());
+		            preparedStatement.setString(5, c.getEmail());
+		            preparedStatement.setString(6, c.getContrasenya());
+		            preparedStatement.setBoolean(7, c.isAdmin());
+		            preparedStatement.execute();
+
+		            System.out.println("Clientes agregados correctamente");
+				}
+	        	
+
+	        } catch (Exception e) {
+	            System.out.println("Error agregando los clientes");
+	            System.out.println(e);
+	        }
+	}
+	
+	public void initializeData() {
+		System.out.println(" * Inicializando base de datos");
+		
+		Cliente c1 = new Cliente("43527594", "Manolito", "Manolo", 18, "Manolito@gmail.es", "manolo123", false);
+		Cliente c2 = new Cliente("admin", "admin", "admin", 20, "admin@admin.es", "admin", true);
+		
+		try {
+			 store(c1);
+			 store(c2);
+		} catch (Exception ex) {
+			// TODO: handle exception
+			System.out.println(" $ Error inicializando los datos: " + ex.getMessage());
+			ex.printStackTrace();
+		}
+	}
 
 }

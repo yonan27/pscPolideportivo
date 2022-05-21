@@ -13,7 +13,7 @@ import es.deusto.spq.client.Cliente;
 
 @Path("/server")
 @Produces(MediaType.APPLICATION_JSON)
-public class RemoteFacade {
+public class RemoteFacade implements IRemoteFacade{
 	
 	private DBManager dbmanager = null;
 	private Logger logger = Logger.getLogger(RemoteFacade.class.getName());
@@ -25,11 +25,24 @@ public class RemoteFacade {
 	private static final long serialVersionUID = 1L;
 	private static RemoteFacade instance;
 	
-	
 	@POST
-	@Path("/registro")
+	@Path("/loginPolideportivo")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response registrarCliente(Cliente cliente) {
+	public Response loginPolideportivo(Cliente cliente) {
+		Cliente user = dbmanager.getUsuario(cliente.getEmail());
+		if(user!= null && user.getContrasenya().equals(cliente.getContrasenya())) {
+			if(user.isAdmin()) {
+				return Response.status(Response.Status.OK).build();
+			}else {
+				return Response.status(Response.Status.ACCEPTED).build();
+			}	
+		}return Response.status(Response.Status.BAD_REQUEST).build();
+	}
+	 
+	@POST
+	@Path("/registroPolideportivo")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response agregarClientePolideportivo(Cliente cliente) {
 		Cliente c = dbmanager.getUsuario(cliente.getEmail());
 		if(c== null) {
 			dbmanager.store(cliente);
