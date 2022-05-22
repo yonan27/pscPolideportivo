@@ -243,4 +243,10 @@ public class DBManager {
 		
 
 }
+	
+	public void ModificarReservaInstalacion(Connection con, int Instalacion) throws SQLException {
+		PreparedStatement preparedStatement = null;
+		String query = "Modify from ReservaInstalacion where IDReserva ";
+		preparedStatement = conn.prepareStatement(query);
+}
 }

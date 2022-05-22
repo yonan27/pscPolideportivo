@@ -62,6 +62,18 @@ public class RemoteFacade implements IRemoteFacade{
 		}return Response.status(Response.Status.BAD_REQUEST).build();
 		
 	}
+	@POST
+	@Path("/ModificarReservaInstalacion")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Override
+	public Response ModificarReservaInstalacion(ReservaInstalaciones reserva) {
+		ReservaInstalaciones r = dbmanager.getReserva(reserva.getEmailUsuario());
+		if(r == null) {
+			dbmanager.store(reserva);
+			return Response.status(Response.Status.OK).build();
+		}return Response.status(Response.Status.BAD_REQUEST).build();
+		
+	}
 	
 	
 }

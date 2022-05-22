@@ -10,5 +10,6 @@ public interface IRemoteFacade {
 	public Response loginPolideportivo(Cliente cliente);
 	public Response agregarClientePolideportivo(Cliente cliente);
 	public Response realizarReservaInstalacion(ReservaInstalaciones reserva);
+	public Response ModificarReservaInstalacion(ReservaInstalaciones reserva);
 
 }

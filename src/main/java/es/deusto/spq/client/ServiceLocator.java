@@ -119,4 +119,26 @@ public boolean eliminarInstalacion(String IDReserva, String IDInstalacion, Strin
         return true;
     }
 }
+public boolean modificarInstalacion(String IDReserva, String IDInstalacion, String emailUsuario, int anyo, int mes, int dia, int hora) {
+    WebTarget modifyUserWebTarget = webTarget.path("server/reservaInstalacion");
+    ReservaInstalaciones r = new ReservaInstalaciones();
+    r.setIDReserva(IDReserva);
+    r.setIDInstalacion(IDInstalacion);
+    r.setEmailUsuario(emailUsuario);
+    r.setAnyo(anyo);
+    r.setDia(dia);
+    r.setHora(hora);
+
+    Entity<ReservaInstalaciones> entity = Entity.entity(r, MediaType.APPLICATION_JSON);
+    Response response = modifyUserWebTarget.request().post(entity);
+    if (response.getStatus() != Status.OK.getStatusCode()) {
+        logger.error("Error conectando con el servidor. Codigo: " + response.getStatus());
+        return false;
+    } else {
+        logger.info(" Se ha modificado correctamente");
+        return true;
+    }
+}
+
+
 }
