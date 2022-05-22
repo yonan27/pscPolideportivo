@@ -30,7 +30,7 @@ public class VentanaReservaInstalaciones extends JFrame {
 	private JButton botonAtras = new JButton();
 	
 
-	public VentanaReservaInstalaciones(Controller controller) {
+	public VentanaReservaInstalaciones(final es.deusto.spq.client.Controller controller) {
 		
 		contentpane = new JPanel();
 		contentpane.setBorder(new EmptyBorder(10, 10, 5, 5));
