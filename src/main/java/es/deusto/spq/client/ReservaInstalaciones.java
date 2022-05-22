@@ -1,4 +1,4 @@
-package es.deusto.spq.client;
+	package es.deusto.spq.client;
 
 import javax.jdo.annotations.Inheritance;
 import javax.jdo.annotations.InheritanceStrategy;

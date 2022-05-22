@@ -2,8 +2,11 @@ package es.deusto.spq.server;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
@@ -12,6 +15,8 @@ import javax.jdo.Query;
 import javax.jdo.Transaction;
 
 import es.deusto.spq.client.Cliente;
+import es.deusto.spq.client.gui.VentanaLogin;
+
 
 public class DBManager {
 	
@@ -162,5 +167,13 @@ public class DBManager {
 			ex.printStackTrace();
 		}
 	}
-
+	public void EliminarReservaInstalacion(Connection con, int Instalacion) throws SQLException {
+		PreparedStatement preparedStatement = null;
+		String query = "delete from ReservaInstalacion where IDReserva ";
+		preparedStatement = conn.prepareStatement(query);
+		
+		
+	       
+		
+}
 }
