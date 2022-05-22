@@ -26,7 +26,6 @@ public class VentanaReservaInstalaciones extends JFrame {
 	private JComboBox comboBoxMes = new JComboBox();
 	private JComboBox comboBoxDia = new JComboBox();
 	private JComboBox comboBoxHora = new JComboBox();
-	private JButton botonFiltrar = new JButton();
 	private JButton botonReservar = new JButton();
 	private JButton botonAtras = new JButton();
 	
@@ -38,61 +37,55 @@ public class VentanaReservaInstalaciones extends JFrame {
 		this.setContentPane(contentpane);
 		contentpane.setLayout(null);
 		
-		listaInstalaciones.setBounds(142, 148, 447, 386);
+		listaInstalaciones.setBounds(81, 95, 447, 386);
 		contentpane.add(listaInstalaciones);
 
 		JLabel lTitulo = new JLabel("Realizar una reserva");
 		lTitulo.setFont(new Font("Goudy Old Style", Font.BOLD, 40));
-		lTitulo.setBounds(345, 35, 331, 42);
+		lTitulo.setBounds(345, 35, 401, 42);
 		contentpane.add(lTitulo);
 		
-		JLabel lInstalacionesDisponibles = new JLabel();
-		lInstalacionesDisponibles.setText("Instalaciones disponibles");
-		lInstalacionesDisponibles.setFont(new Font("Goudy Old Style", Font.BOLD, 23));
-		lInstalacionesDisponibles.setBounds(142, 99, 300, 48);
-		contentpane.add(lInstalacionesDisponibles);
-		
 		JLabel lFiltrarPorFecha = new JLabel();
-		lFiltrarPorFecha.setText("Filtrar por fecha");
+		lFiltrarPorFecha.setText("Introducir datos");
 		lFiltrarPorFecha.setFont(new Font("Goudy Old Style", Font.BOLD, 23));
-		lFiltrarPorFecha.setBounds(628, 99, 300, 48);
+		lFiltrarPorFecha.setBounds(556, 95, 300, 48);
 		contentpane.add(lFiltrarPorFecha);
 		
 		JLabel lAnyo = new JLabel();
-		lAnyo.setText("A�o");
+		lAnyo.setText("Año");
 		lAnyo.setFont(new Font("Goudy Old Style", Font.BOLD, 19));
-		lAnyo.setBounds(629, 133, 61, 48);
+		lAnyo.setBounds(556, 137, 61, 48);
 		contentpane.add(lAnyo);
 		
 		JLabel lMes = new JLabel();
 		lMes.setText("Mes");
 		lMes.setFont(new Font("Goudy Old Style", Font.BOLD, 19));
-		lMes.setBounds(628, 210, 61, 48);
+		lMes.setBounds(556, 211, 61, 48);
 		contentpane.add(lMes);
 		
 		JLabel lDia = new JLabel();
-		lDia.setText("D�a");
+		lDia.setText("Día");
 		lDia.setFont(new Font("Goudy Old Style", Font.BOLD, 19));
-		lDia.setBounds(629, 286, 61, 48);
+		lDia.setBounds(556, 287, 61, 48);
 		contentpane.add(lDia);
 		
 		JLabel lHora = new JLabel();
 		lHora.setText("Hora");
 		lHora.setFont(new Font("Goudy Old Style", Font.BOLD, 19));
-		lHora.setBounds(630, 362, 61, 48);
+		lHora.setBounds(556, 360, 61, 48);
 		contentpane.add(lHora);
 		
 		
 		comboBoxAnyo.setFont(new Font("Goudy Old Style", Font.PLAIN, 19));
-		comboBoxAnyo.setBounds(627, 175, 190, 30);
-		comboBoxAnyo.addItem("Seleccione el a�o");
+		comboBoxAnyo.setBounds(556, 183, 190, 30);
+		comboBoxAnyo.addItem("Seleccione el año");
 		for (int i = 2022; i <= 2024; i++) {
 			comboBoxAnyo.addItem(Integer.toString(i));
 		}
 		contentpane.add(comboBoxAnyo);
 		
 		comboBoxMes.setFont(new Font("Goudy Old Style", Font.PLAIN, 19));
-		comboBoxMes.setBounds(630, 253, 190, 30);
+		comboBoxMes.setBounds(556, 257, 190, 30);
 		comboBoxMes.addItem("Seleccione el mes");
 		for (int i = 1; i <= 12; i++) {
 			comboBoxMes.addItem(Integer.toString(i));
@@ -100,32 +93,24 @@ public class VentanaReservaInstalaciones extends JFrame {
 		contentpane.add(comboBoxMes);
 		
 		comboBoxDia.setFont(new Font("Goudy Old Style", Font.PLAIN, 19));
-		comboBoxDia.setBounds(630, 329, 190, 30);
-		comboBoxDia.addItem("Seleccione el d�a");
+		comboBoxDia.setBounds(556, 331, 190, 30);
+		comboBoxDia.addItem("Seleccione el día");
 		for (int i = 1; i <= 31; i++) {
 			comboBoxDia.addItem(Integer.toString(i));
 		}
 		contentpane.add(comboBoxDia);
 		
 		comboBoxHora.setFont(new Font("Goudy Old Style", Font.PLAIN, 19));
-		comboBoxHora.setBounds(630, 404, 190, 30);
+		comboBoxHora.setBounds(556, 404, 190, 30);
 		comboBoxHora.addItem("Seleccione la hora");
 		for (int i = 8; i <= 23; i++) {
 			comboBoxHora.addItem(Integer.toString(i));
 		}
 		contentpane.add(comboBoxHora);
 		
-		
-		botonFiltrar.setText("Filtrar");
-		botonFiltrar.setForeground(Color.WHITE);
-		botonFiltrar.setFont(new Font("Goudy Old Style", Font.BOLD, 19));
-		botonFiltrar.setBackground(new Color(0, 51, 255));
-		botonFiltrar.setBounds(730, 460, 90, 30);
-		contentpane.add(botonFiltrar);
-		
 		botonReservar.setForeground(SystemColor.text);
 		botonReservar.setBackground(new Color(0, 51, 255));
-		botonReservar.setBounds(899, 279, 123, 61);
+		botonReservar.setBounds(804, 257, 190, 61);
 		botonReservar.setText("Reservar");
 		botonReservar.setFont(new Font("Goudy Old Style", Font.BOLD, 25));
 		contentpane.add(botonReservar);
@@ -136,13 +121,6 @@ public class VentanaReservaInstalaciones extends JFrame {
 		botonAtras.setText("Atras");
 		botonAtras.setFont(new Font("Goudy Old Style", Font.BOLD, 19));
 		contentpane.add(botonAtras);
-		
-		
-		botonFiltrar.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		
 		botonReservar.addActionListener(new ActionListener() {
 			@Override

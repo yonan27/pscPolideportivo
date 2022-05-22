@@ -10,6 +10,7 @@ import javax.ws.rs.core.Response;
 import org.apache.log4j.Logger;
 
 import es.deusto.spq.client.Cliente;
+import es.deusto.spq.client.ReservaInstalaciones;
 
 @Path("/server")
 @Produces(MediaType.APPLICATION_JSON)
@@ -48,6 +49,18 @@ public class RemoteFacade implements IRemoteFacade{
 			dbmanager.store(cliente);
 			return Response.status(Response.Status.OK).build();
 		}return Response.status(Response.Status.BAD_REQUEST).build();
+	}
+	@POST
+	@Path("/reservaInstalacion")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Override
+	public Response realizarReservaInstalacion(ReservaInstalaciones reserva) {
+		ReservaInstalaciones r = dbmanager.getReserva(reserva.getEmailUsuario());
+		if(r == null) {
+			dbmanager.store(reserva);
+			return Response.status(Response.Status.OK).build();
+		}return Response.status(Response.Status.BAD_REQUEST).build();
+		
 	}
 	
 	

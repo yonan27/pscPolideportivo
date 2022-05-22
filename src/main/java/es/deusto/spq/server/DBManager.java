@@ -12,6 +12,7 @@ import javax.jdo.Query;
 import javax.jdo.Transaction;
 
 import es.deusto.spq.client.Cliente;
+import es.deusto.spq.client.ReservaInstalaciones;
 
 public class DBManager {
 	
@@ -90,6 +91,14 @@ public class DBManager {
 		DBManager.getInstance().deleteObjectFromDB(client);
 	}
 	
+	public void store(ReservaInstalaciones reser) {
+		DBManager.getInstance().storeObjectInDB(reser);
+	}
+
+	public void delete(ReservaInstalaciones reser) {
+		DBManager.getInstance().deleteObjectFromDB(reser);
+	}
+	
 	public Cliente getUsuario(String email) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		pm.getFetchPlan().setMaxFetchDepth(4);
@@ -115,6 +124,32 @@ public class DBManager {
 		}
 
 		return user;	
+		}
+	
+	public ReservaInstalaciones getReserva(String emailUsuario) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.getFetchPlan().setMaxFetchDepth(4);
+		Transaction tx = pm.currentTransaction();
+		ReservaInstalaciones reserva = null;
+		
+		try {
+			tx.begin();
+
+			Query<?> query = pm.newQuery("SELECT FROM " + ReservaInstalaciones.class.getName() + " WHERE emailUsuario == '" + emailUsuario + "'");
+			query.setUnique(true);
+			reserva = (ReservaInstalaciones) query.execute();
+
+			tx.commit();
+		} catch (Exception ex) {
+			System.out.println("Error mostrando la reserva de la BD: " + ex.getMessage());
+		} finally {
+			if (tx != null && tx.isActive()) {
+				tx.rollback();
+			}
+
+			pm.close();
+		}
+		return reserva;
 		}
 	
 	public void agregarClientePolideportivo(List<Cliente> clientes) {
@@ -162,5 +197,33 @@ public class DBManager {
 			ex.printStackTrace();
 		}
 	}
+	
+	public void realizarReservaInstalacion(List<ReservaInstalaciones> reservas) {
+		PreparedStatement preparedStatement = null;
 
+	        try {
+	            
+	        	for (ReservaInstalaciones r : reservas) {
+	        		String query = " INSERT INTO RESERVAINSTALACIONES (IDRERSERVA, IDINSTALACION, EMAILUSUARIO, ANYO, DIA, HORA)"
+		                    + " VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+		            preparedStatement = conn.prepareStatement(query);
+
+		            preparedStatement.setString(1, r.getIDReserva());
+		            preparedStatement.setString(2, r.getIDInstalacion());
+		            preparedStatement.setString(3, r.getEmailUsuario());
+		            preparedStatement.setInt(4, r.getAnyo());
+		            preparedStatement.setInt(5, r.getDia());
+		            preparedStatement.setInt(6, r.getHora());
+		            preparedStatement.execute();
+
+		            System.out.println("Reserva agregada correctamente");
+				}
+	        	
+
+	        } catch (Exception e) {
+	            System.out.println("Error al realizar la reserva");
+	            System.out.println(e);
+	        }
+	 }
 }

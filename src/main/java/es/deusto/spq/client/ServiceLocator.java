@@ -77,5 +77,26 @@ public class ServiceLocator {
 		}
 		return 0;
 	}
+	
+	public boolean realizarReservaInstalacion(String IDReserva, String IDInstalacion, String emailUsuario, int anyo, int mes, int dia, int hora) {
+		WebTarget registerUserWebTarget = webTarget.path("server/reservaInstalacion");
+		ReservaInstalaciones r = new ReservaInstalaciones();
+		r.setIDReserva(IDReserva);
+		r.setIDInstalacion(IDInstalacion);
+		r.setEmailUsuario(emailUsuario);
+		r.setAnyo(anyo);
+		r.setDia(dia);
+		r.setHora(hora);
+		
+		Entity<ReservaInstalaciones> entity = Entity.entity(r, MediaType.APPLICATION_JSON);
+		Response response = registerUserWebTarget.request().post(entity);
+		if (response.getStatus() != Status.OK.getStatusCode()) {
+			logger.error("Error conectando con el servidor. Codigo: " + response.getStatus());
+			return false;
+		} else {
+			logger.info("Reserva realizada correctamente");
+			return true;
+		}
+	}
 
 }
