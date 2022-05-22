@@ -89,13 +89,13 @@ public class VentanaRegistro extends JFrame {
 		labelEmail.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
 		contentpane.add(labelEmail);
 		
-		labelContrasenya.setText("Contrase�a:");
+		labelContrasenya.setText("Contraseña:");
 		labelContrasenya.setBounds(86, 375, 120, 20);
 		labelContrasenya.setOpaque(true);
 		labelContrasenya.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
 		contentpane.add(labelContrasenya);
 		
-		labelConfirmarContrasenya.setText("Confirmar contrase�a:");
+		labelConfirmarContrasenya.setText("Confirmar contraseña:");
 		labelConfirmarContrasenya.setBounds(50, 425, 156, 20);
 		labelConfirmarContrasenya.setOpaque(true);
 		labelConfirmarContrasenya.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
@@ -110,7 +110,7 @@ public class VentanaRegistro extends JFrame {
 		
 		botonIniciarSesion.setBackground(SystemColor.inactiveCaptionBorder);
 		botonIniciarSesion.setBounds(47, 500, 143, 32);
-		botonIniciarSesion.setText("<< Iniciar sesion");
+		botonIniciarSesion.setText("<< Iniciar sesión");
 		botonIniciarSesion.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
 		contentpane.add(botonIniciarSesion);
 
@@ -156,39 +156,39 @@ public class VentanaRegistro extends JFrame {
 
 				} else if (dni.matches("^[a-zA-Z]+$")) {
 
-					JOptionPane.showMessageDialog(null, "DNI no v�lida.", "Error",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "DNI no válida.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					error = true;
 					VentanaRegistro.this.repaint();
 
 				} else if (nombre.matches("^[0-9]+$")) {
 
-					JOptionPane.showMessageDialog(null, "Nombre no v�lida.", "Error",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Nombre no válida.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					error = true;
 					VentanaRegistro.this.repaint();
 
 				} else if (apellido.matches("^[0-9]+$")) {
 
-					JOptionPane.showMessageDialog(null, "Apellido no v�lida.", "Error",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Apellido no válida.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					error = true;
 					VentanaRegistro.this.repaint();
 					
 				} else if (edad.matches("^[0-99]")) {
 
-					JOptionPane.showMessageDialog(null, "Edad no v�lida.", "Error",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Edad no válida.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					error = true;
 					VentanaRegistro.this.repaint();
 
 				} else if (!textoEmail.getText().contains("@") || !(textoEmail.getText().contains(".es")
 						|| textoEmail.getText().contains(".com") || textoEmail.getText().contains(".eus"))) {
 
-					JOptionPane.showMessageDialog(null, "Email no v�lida.", "Error",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Email no válida.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					error = true;
 					VentanaRegistro.this.repaint();
 
 				} else if (!String.valueOf(textoContrasenya.getPassword())
 						.equals(String.valueOf(textoConfirmarContrasenya.getPassword()))) {
 
-					JOptionPane.showMessageDialog(null, "Las contrase�as no coinciden.", "Error",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					VentanaRegistro.this.repaint();
 					error = true;
 
@@ -208,7 +208,7 @@ public class VentanaRegistro extends JFrame {
 
 				} else if (!error) {
 					JOptionPane.showMessageDialog(null,
-							"El email introducido ya ha sido registrado, pruebe a iniciar sesi�n.", "Error",JOptionPane.INFORMATION_MESSAGE);
+							"El email introducido ya ha sido registrado, pruebe a iniciar sesión.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					VentanaRegistro.this.repaint();
 				}
 			}
