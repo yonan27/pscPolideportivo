@@ -121,6 +121,19 @@ public class VentanaReservaInstalaciones extends JFrame {
 		botonAtras.setText("Atras");
 		botonAtras.setFont(new Font("Goudy Old Style", Font.BOLD, 19));
 		contentpane.add(botonAtras);
+
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//llamar al metodo de borrar de la base de datos
+				
+			}
+		});
+		btnEliminar.setForeground(new Color(0, 0, 0));
+		btnEliminar.setBackground(Color.RED);
+		btnEliminar.setFont(new Font("Goudy Old Style", Font.PLAIN, 12));
+		btnEliminar.setBounds(628, 460, 92, 28);
+		contentpane.add(btnEliminar);
 		
 		botonReservar.addActionListener(new ActionListener() {
 			@Override
