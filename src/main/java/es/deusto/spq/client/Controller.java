@@ -12,7 +12,7 @@ public ServiceLocator serviceLocator;
 		return serviceLocator.loginPolideportivo(email, contrasenya);
 	}
 	
-	public boolean agregarCliente(String DNI, String nombre, String apellido, int edad, String email, String contrasenya, boolean Admin){
+	public boolean agregarClientePolideportivo(String DNI, String nombre, String apellido, int edad, String email, String contrasenya, boolean Admin){
 		return serviceLocator.agregarClientePolideportivo(DNI, nombre, apellido, edad, email, contrasenya, Admin);
 	}
 

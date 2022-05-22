@@ -117,7 +117,7 @@ public class DBManager {
 		return user;	
 		}
 	
-	public void anadirCliente(List<Cliente> clientes) {
+	public void agregarClientePolideportivo(List<Cliente> clientes) {
 		PreparedStatement preparedStatement = null;
 
 	        try {
