@@ -89,13 +89,13 @@ public class VentanaRegistro extends JFrame {
 		labelEmail.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
 		contentpane.add(labelEmail);
 		
-		labelContrasenya.setText("Contraseña:");
+		labelContrasenya.setText("Contraseï¿½a:");
 		labelContrasenya.setBounds(86, 375, 120, 20);
 		labelContrasenya.setOpaque(true);
 		labelContrasenya.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
 		contentpane.add(labelContrasenya);
 		
-		labelConfirmarContrasenya.setText("Confirmar contraseña:");
+		labelConfirmarContrasenya.setText("Confirmar contraseï¿½a:");
 		labelConfirmarContrasenya.setBounds(50, 425, 156, 20);
 		labelConfirmarContrasenya.setOpaque(true);
 		labelConfirmarContrasenya.setFont(new Font("Goudy Old Style", Font.BOLD, 16));
@@ -156,45 +156,46 @@ public class VentanaRegistro extends JFrame {
 
 				} else if (dni.matches("^[a-zA-Z]+$")) {
 
-					JOptionPane.showMessageDialog(null, "DNI no válida.", "Error",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "DNI no vï¿½lida.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					error = true;
 					VentanaRegistro.this.repaint();
 
 				} else if (nombre.matches("^[0-9]+$")) {
 
-					JOptionPane.showMessageDialog(null, "Nombre no válida.", "Error",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Nombre no vï¿½lida.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					error = true;
 					VentanaRegistro.this.repaint();
 
 				} else if (apellido.matches("^[0-9]+$")) {
 
-					JOptionPane.showMessageDialog(null, "Apellido no válida.", "Error",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Apellido no vï¿½lida.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					error = true;
 					VentanaRegistro.this.repaint();
 					
 				} else if (edad.matches("^[0-99]")) {
 
-					JOptionPane.showMessageDialog(null, "Edad no válida.", "Error",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Edad no vï¿½lida.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					error = true;
 					VentanaRegistro.this.repaint();
 
 				} else if (!textoEmail.getText().contains("@") || !(textoEmail.getText().contains(".es")
 						|| textoEmail.getText().contains(".com") || textoEmail.getText().contains(".eus"))) {
 
-					JOptionPane.showMessageDialog(null, "Email no válida.", "Error",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Email no vï¿½lida.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					error = true;
 					VentanaRegistro.this.repaint();
 
 				} else if (!String.valueOf(textoContrasenya.getPassword())
 						.equals(String.valueOf(textoConfirmarContrasenya.getPassword()))) {
 
-					JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden.", "Error",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Las contraseï¿½as no coinciden.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					VentanaRegistro.this.repaint();
 					error = true;
 
 				} else if (!error) {
 
-					//Codigo para registrar el usuario
+					controller.agregarClientePolideportivo(textoDNI.getText(), textoNombre.getText(), textoApellido.getText(), Integer.valueOf(textoEdad.getText()),
+                            textoEmail.getText(), String.valueOf(textoContrasenya.getPassword()), false);
 					
 					RegistroCorrecto= true;
 				}
@@ -207,7 +208,7 @@ public class VentanaRegistro extends JFrame {
 
 				} else if (!error) {
 					JOptionPane.showMessageDialog(null,
-							"El email introducido ya ha sido registrado, pruebe a iniciar sesión.", "Error",JOptionPane.INFORMATION_MESSAGE);
+							"El email introducido ya ha sido registrado, pruebe a iniciar sesiï¿½n.", "Error",JOptionPane.INFORMATION_MESSAGE);
 					VentanaRegistro.this.repaint();
 				}
 			}
