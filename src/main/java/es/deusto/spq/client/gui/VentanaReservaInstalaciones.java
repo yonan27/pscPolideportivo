@@ -41,7 +41,7 @@ public class VentanaReservaInstalaciones extends JFrame {
 		contentpane.add(listaInstalaciones);
 
 		JLabel lTitulo = new JLabel("Realizar una reserva");
-		lTitulo.setFont(new Font("Goudy Old Style", Font.BOLD, 40));
+		lTitulo.setFont(new Font("Forte", Font.BOLD, 40));
 		lTitulo.setBounds(345, 35, 401, 42);
 		contentpane.add(lTitulo);
 		
