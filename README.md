@@ -50,8 +50,9 @@ A continuación se detallan las herramientas utilizadas para crear el proyecto:
 
 ## ✒️ Autores
 
-* [Jon Soler]          (https://github.com/JonSoler/pscPolideportivo)
-* [Aitor Bonilla]      (https://github.com/bonillaaitor)
+* [Yon Ander Escobal]        
+* [Markel Morales]
+* [Ignacio Echavarren]    
 
 
 También es posible consultar la lista de todos los contribuyentes en GitHub:
