@@ -52,9 +52,7 @@ A continuación se detallan las herramientas utilizadas para crear el proyecto:
 
 * [Jon Soler]          (https://github.com/JonSoler/pscPolideportivo)
 * [Aitor Bonilla]      (https://github.com/bonillaaitor)
-* [Yon Ander Escobal]  (https://github.com/yonan27)
-* [Markel Morales]     (https://github.com/markelmorales15)
-* [Ignacio Echavarren] (https://github.com/ignacioechavarren)
+
 
 También es posible consultar la lista de todos los contribuyentes en GitHub:
 https://github.com/JonSoler/pscPolideportivo/graphs/contributors 
@@ -62,4 +60,4 @@ https://github.com/JonSoler/pscPolideportivo/graphs/contributors
 
 ## ℹ️ Versión
 
-PSC Polideportivo© ver. 2.0 - 2022-05-02
+PSC Polideportivo© ver. 3.0 - 2022-05-27
