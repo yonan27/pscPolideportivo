@@ -2,6 +2,7 @@ package es.deusto.spq.server;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -13,6 +14,8 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
+
+import org.sqlite.core.DB;
 
 import es.deusto.spq.client.Cliente;
 
@@ -207,9 +210,7 @@ public class DBManager {
 	
 	public void realizarReservaInstalacion(List<ReservaInstalaciones> reservas) {
 		PreparedStatement preparedStatement = null;
-
 	        try {
-	            
 	        	for (ReservaInstalaciones r : reservas) {
 	        		String query = " INSERT INTO RESERVAINSTALACIONES (IDRERSERVA, IDINSTALACION, EMAILUSUARIO, ANYO, DIA, HORA)"
 		                    + " VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -233,16 +234,50 @@ public class DBManager {
 	            System.out.println(e);
 	        }
 	 }
-	public void EliminarReservaInstalacion(Connection con, int Instalacion) throws SQLException {
-		PreparedStatement preparedStatement = null;
-		String query = "delete from ReservaInstalacion where IDReserva ";
-		preparedStatement = conn.prepareStatement(query);
-		
-		
-	       
-		
 
-}
+	       
+	/*
+	 * 	private String IDReserva;
+    private String IDReserva;
+    private String emailUsuario;
+    private int anyo;
+    private int mes;
+    private int dia;
+    private int hora;
+    
+	 */
+	public List<ReservaInstalaciones> getAllReservas() {
+		List<ReservaInstalaciones> reservas = new ArrayList<ReservaInstalaciones>();
+		PersistenceManager pm = pmf.getPersistenceManager();
+		/*
+		 * 	pm.getFetchPlan().setMaxFetchDepth(4);
+		Transaction tx = pm.currentTransaction();
+		ReservaInstalaciones reserva = null;
+			//Connection con = DB.initDB("database.sql");
+		 */
+	
+		
+		try (Statement stmt = conn.createStatement()) {
+			ResultSet rs = stmt.executeQuery("SELECT IDInstalación, IDReserva, emailUsuario, anyo, mes, dia, hora FROM RESERVA");
+			while(rs.next()) {
+				ReservaInstalaciones reserva = new ReservaInstalaciones();
+				reserva.setIDInstalacion(rs.getString("IDReserva"));
+				reserva.setIDReserva(rs.getString("IDReserva"));
+				reserva.setEmailUsuario(rs.getString("user_email"));
+				reserva.setAnyo(rs.getInt("anyo"));
+				reserva.setMes(rs.getInt("mes"));
+				reserva.setDia(rs.getInt("dia"));
+				
+				reservas.add(reserva);
+			}
+		} catch (SQLException e) {
+			System.out.println("Error al coger reservas");
+			
+		}
+		return reservas;
+	}	
+
+
 	
 	public void ModificarReservaInstalacion(Connection con, int Instalacion) throws SQLException {
 		PreparedStatement preparedStatement = null;
