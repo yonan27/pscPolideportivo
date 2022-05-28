@@ -139,6 +139,10 @@ public class VentanaReservaInstalaciones extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
+				String anyo = comboBoxAnyo.getSelectedItem().toString();
+			    String mes = comboBoxMes.getSelectedItem().toString();
+		        String dia = comboBoxDia.getSelectedItem().toString();
+		        String hora = comboBoxHora.getSelectedItem().toString();
 			}
 		});
 				
