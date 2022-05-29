@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.PageAttributes.MediaType;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +13,7 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectInputFilter.Status;
 import java.util.Date;
 import java.util.Properties;
 
@@ -23,6 +25,11 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.html.parser.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+
+import es.deusto.spq.client.Cliente;
 
 public class VentanaLogin extends JFrame {
 
@@ -42,6 +49,8 @@ public class VentanaLogin extends JFrame {
 	private JPasswordField textoContrasenya = new JPasswordField();
 	private JButton botonIniciarSesion = new JButton();
 	private JButton botonRegistrarse = new JButton();
+	private WebTarget webTarget;
+	private Cliente cliente;
 
 	public VentanaLogin(final es.deusto.spq.client.Controller controller) {
 
@@ -172,6 +181,37 @@ public class VentanaLogin extends JFrame {
 		}
 		emailDelAnteriorUsuario = emailDelUsuario;
 	}
+	/*
+	public boolean logIn(String email, String password, JLabel lError, VentanaLogin vl){
+		try {
+			WebTarget webTarget=this.webTarget.path("/pscPolideportivo/src/main/java/es/deusto/spq/client/gui/VentanaLogin.java");
+			Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_JSON);
+			Usuario u=new Usuario();
+			u.setEmail(email);
+			u.setPassword(password);
+			System.out.println(webTarget.getUri());
+			Response response = invocationBuilder.post(Entity.entity(u, MediaType.APPLICATION_JSON));
+
+			if (response.getStatus() != Status.OK.getStatusCode()) {
+				
+			}
+			
+			if (!logIn) {
+				lError.setText("Email o contrasena incorrectos");
+				vl.setLocationRelativeTo(null);
+				vl.pack();
+				
+			}
+			return logIn;
+		}catch(Exception e) {
+			lError.setText("Algo ha fallado al realizar el LogIn");
+			System.out.println("* Error " + e.getMessage() +"*");
+			vl.pack();
+			vl.setLocationRelativeTo(null);
+			return false;
+		}
+	}
+	*/
 
 	public VentanaLogin(boolean b) {
 		this(null);
